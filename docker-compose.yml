@@ -1,0 +1,44 @@
+services:
+  pip:
+    build:
+      context: ./pip
+      dockerfile: Dockerfile
+    container_name: python-pip-env
+    volumes:
+      - ./pip:/app
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  poetry:
+    build:
+      context: ./poetry
+      dockerfile: Dockerfile
+    container_name: python-poetry-env
+    volumes:
+      - ./poetry:/app
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  pyenv:
+    build:
+      context: ./pyenv
+      dockerfile: Dockerfile
+    container_name: python-pyenv-env
+    volumes:
+      - ./pyenv:/app
+    stdin_open: true
+    tty: true
+    command: /bin/bash
+
+  uv:
+    build:
+      context: ./uv
+      dockerfile: Dockerfile
+    container_name: python-uv-env
+    volumes:
+      - ./uv:/app
+    stdin_open: true
+    tty: true
+    command: /bin/bash
